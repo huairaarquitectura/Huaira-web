@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preload" as="image" href="images/x.jpg">
+  <link rel="icon" type="image/png" href="images/u.png">
+  <meta name="description" content="Estudio de diseño interior y fabricación de mobiliario premium en Colombia. Espacios elegantes, renders y carpintería arquitectónica.">
+<meta name="keywords" content="diseño interior, carpintería arquitectónica, cocinas premium, Armenia Quindío, renders 3D">
+  <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>HUAIRA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0a0a0a;
+  --white:#fafaf8;
+  --gray-100:#f5f4f0;
+  --gray-200:#e8e6e0;
+  --gray-400:#b8b5ac;
+  --gray-600:#7a7770;
+  --gray-800:#3a3834;
+  --serif:'Cormorant Garamond',serif;
+  --sans:'Inter',sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--black);font-family:var(--sans);font-weight:300;overflow-x:hidden}
+
+/* LOGO */
+.logo-fixed{
+  height: 50px;
+  width:auto;
+  object-fit:contain;
+}
+.top-logo-bar{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+
+  padding-top:.8rem;
+
+  background:linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.397) 0%,
+    rgba(97, 97, 97, 0.397) 45%,
+    rgba(175, 175, 175, 0.397) 100%
+  );
+
+  backdrop-filter:blur(6px);
+
+  height:80px;
+
+  z-index:2000;
+
+  pointer-events:none;
+
+  border-bottom:3px solid rgb(255, 255, 255);
+}
+
+.logo-fixed{
+  pointer-events:auto;
+}
+
+/* NAV */
+.main-nav{
+  position:fixed;
+
+  top:4rem;
+  left:0;
+  right:0;
+
+  z-index:999;
+
+  padding:1.2rem 2rem;
+
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+
+  transition:
+    top .18s var(--ease),
+    background .3s var(--ease),
+    backdrop-filter .3s var(--ease),
+    padding .18s var(--ease);
+}
+.main-nav.scrolled{
+  top:0;
+
+  background:rgba(10,10,10,.72);
+
+  backdrop-filter:blur(14px);
+
+  padding:.9rem 2rem;
+
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-links{
+  display:flex;
+  gap:2.5rem;
+  list-style:none;
+
+  background:rgba(10,10,10,.35);
+  backdrop-filter:blur(12px);
+
+  padding:1rem 1.8rem;
+  border-radius:999px;
+
+  border:1px solid rgba(255,255,255,.08);
+}
+.lang-switch{
+  display:flex;
+  gap:.5rem;
+  margin-right:auto;
+}
+
+.lang-switch button{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  color:var(--white);
+  padding:.55rem .9rem;
+  border-radius:999px;
+  font-size:.65rem;
+  letter-spacing:.15em;
+  cursor:pointer;
+  transition:.3s;
+  backdrop-filter:blur(10px);
+}
+
+.lang-switch button:hover{
+  background:rgba(255,255,255,.18);
+}
+
+/* LINKS */
+
+.nav-links a{
+  color:var(--white);
+  text-decoration:none;
+  font-size:.7rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  opacity:.8;
+  transition:opacity .3s;
+}
+
+.nav-links a:hover{
+  opacity:1;
+}
+
+/* HERO */
+.hero{height:100vh;display:flex;align-items:center;justify-content:center;background:var(--black);position:relative;overflow:hidden}
+.hero-bg{
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,.55),
+      rgba(0,0,0,.55)
+    ),
+    url('images/x.jpg');
+
+  background-size:cover;
+  background-position:center 30%;
+  background-repeat:no-repeat;
+}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--gray-800) 1px,transparent 1px),linear-gradient(90deg,var(--gray-800) 1px,transparent 1px);background-size:80px 80px;opacity:.03}
+.hero-content{
+  position:relative;
+  text-align:center;
+
+  padding:2rem;
+
+  margin-top:7rem;
+}
+.hero-eyebrow{font-size:.9rem;letter-spacing:.35em;text-transform:uppercase;color:var(--white);margin-bottom:2rem}
+.hero-title{
+  font-family:var(--serif);
+  font-size:clamp(4rem,7vw,7rem);
+  font-weight:300;
+  color:var(--white);
+  line-height:.95;
+  margin-bottom:2.5rem;
+  letter-spacing:-.02em;
+
+  text-shadow:0 10px 50px rgba(0,0,0,.9);
+}
+.hero-title em{font-style:italic;color:var(--gray-400)}
+.hero-sub{font-size:.9rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white);max-width:700px;margin:0 auto 3.5rem;line-height:2}
+.hero-cta{display:inline-flex;align-items:center;gap:1rem;margin-top:3.5rem;;border:1px solid rgba(255,255,255,.2);padding:.9rem 2.5rem;color:var(--white);text-decoration:none;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;transition:all .4s var(--ease)}
+.hero-cta:hover{background:var(--white);color:var(--black)}
+.hero-scroll{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.75rem;color:var(--gray-600);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase}
+.scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,var(--gray-600),transparent);animation:scrollLine 2s ease-in-out infinite}
+@keyframes scrollLine{0%,100%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}60%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* SECTIONS */
+section{padding:8rem 4rem}
+.section-label{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gray-400);margin-bottom:5rem;display:flex;align-items:center;gap:1.5rem}
+.section-label::after{content:'';flex:1;height:1px;background:var(--gray-200)}
+#about .section-label,
+#projects .section-label,
+#services .section-label,
+.process .section-label,
+#contact .section-label{
+  font-size:1rem;
+}
+
+/* ABOUT */
+.about{background:var(--white);display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center}
+.about-visual{aspect-ratio:3/4;background:var(--gray-100);position:relative;overflow:hidden}
+.about-visual-inner{position:absolute;inset:0;background:linear-gradient(160deg,var(--gray-100),var(--gray-200));display:flex;align-items:center;justify-content:center}
+.about-visual-text{font-family:var(--serif);font-size:6rem;font-weight:300;color:var(--gray-200);letter-spacing:-.05em}
+.about-visual img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.about-year{position:absolute;bottom:2rem;right:2rem;font-size:.6rem;letter-spacing:.2em;color:var(--gray-100)}
+.about-text h2{font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:300;line-height:1.15;margin-bottom:2rem}
+.about-text h2 em{font-style:italic;color:var(--gray-600)}
+.about-text p{font-size:.85rem;line-height:2;color:var(--gray-600);margin-bottom:1.5rem}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;padding-top:3rem;border-top:1px solid var(--gray-200)}
+.stat-num{font-family:var(--serif);font-size:2.5rem;font-weight:300;display:block;margin-bottom:.25rem}
+.stat-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-400)}
+
+/* PROJECTS */
+.projects{background:var(--gray-100)}
+.projects-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem}
+.projects-title{font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:300;line-height:1.1}
+.projects-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem}
+.proj-card{background:var(--gray-200);overflow:hidden;position:relative;cursor:pointer}
+.proj-card{
+  background:var(--gray-200);
+  overflow:hidden;
+  position:relative;
+  cursor:pointer;
+}
+
+.proj-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* POSICIÓN INDIVIDUAL DE CADA IMAGEN */
+
+.proj-card:nth-child(1) img{
+  object-position:center 40%;
+}
+
+.proj-card:nth-child(2) img{
+  object-position:center 20%;
+}
+
+.proj-card:nth-child(3) img{
+  object-position:center 40%;
+}
+
+.proj-card:nth-child(4) img{
+  object-position:center 45%;
+}
+.proj-card:hover .proj-overlay{opacity:1}
+.proj-card:nth-child(1){grid-column:span 7;aspect-ratio:16/14.12}
+.proj-card:nth-child(2){grid-column:span 5;aspect-ratio:4/5}
+.proj-card:nth-child(3){grid-column:span 4;aspect-ratio:4/5}
+.proj-card:nth-child(4){grid-column:span 8;aspect-ratio:16/9.7}
+.proj-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1rem;color:var(--gray-400);letter-spacing:.1em;background:var(--gray-200)}
+.proj-overlay{position:absolute;inset:0;background:rgba(10,10,10,.85);opacity:0;transition:opacity .4s var(--ease);display:flex;flex-direction:column;justify-content:flex-end;padding:2rem}
+.proj-overlay h3{font-family:var(--serif);font-size:1.6rem;font-weight:300;color:var(--white);margin-bottom:.5rem}
+.proj-overlay span{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-400)}
+
+/* SERVICES */
+.services{background:var(--white)}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--gray-200)}
+.service-item{padding:3rem 2.5rem;border-right:1px solid var(--gray-200);transition:background .3s var(--ease)}
+.service-item:last-child{border-right:none}
+.service-item:hover{background:var(--gray-100)}
+.service-num{font-family:var(--serif);font-size:.8rem;color:var(--gray-400);margin-bottom:2rem;display:block}
+.service-title{font-family:var(--serif);font-size:1.6rem;font-weight:300;line-height:1.2;margin-bottom:1.5rem}
+.service-desc{font-size:.78rem;line-height:1.9;color:var(--gray-600)}
+.service-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
+.tag{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;padding:.4rem .9rem;border:1px solid var(--gray-200);color:var(--gray-600)}
+
+/* PROCESS */
+.process{background:var(--gray-100)}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:step}
+.process-step{padding:3rem 2rem;position:relative;counter-increment:step}
+.process-step::before{content:counter(step,decimal-leading-zero);font-family:var(--serif);font-size:.75rem;color:var(--gray-400);display:block;margin-bottom:2rem;letter-spacing:.1em}
+.process-step::after{content:'';position:absolute;top:0;left:2rem;right:0;height:1px;background:var(--gray-400)}
+.process-step h3{font-family:var(--serif);font-size:1.4rem;font-weight:300;margin-bottom:1rem}
+.process-step p{font-size:.78rem;line-height:1.9;color:var(--gray-600)}
+
+/* CONTACT */
+.contact{background:var(--white);display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:60vh}
+.contact-left{padding:8rem 5rem;background:var(--black);color:var(--white);display:flex;flex-direction:column;justify-content:center}
+.contact-left h2{font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:300;line-height:1.1;margin-bottom:2rem;color:var(--white)}
+.contact-left h2 em{font-style:italic;color:var(--gray-600)}
+.contact-left p{font-size:.8rem;line-height:2;color:var(--gray-400);max-width:380px;margin-bottom:3rem}
+.contact-info{display:flex;flex-direction:column;gap:1.5rem}
+.contact-info-item{display:flex;flex-direction:column;gap:.4rem}
+.contact-info-item span:first-child{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gray-600)}
+.contact-info-item a{color:var(--gray-200);text-decoration:none;font-size:.85rem;transition:color .3s}
+.contact-info-item a:hover{color:var(--white)}
+.contact-right{padding:8rem 5rem;display:flex;flex-direction:column;justify-content:center}
+.contact-right h3{font-family:var(--serif);font-size:1.5rem;font-weight:300;margin-bottom:2.5rem;color:var(--gray-800)}
+.form-group{margin-bottom:1.75rem}
+.form-group label{display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-400);margin-bottom:.75rem}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:transparent;border:none;border-bottom:1px solid var(--gray-200);padding:.75rem 0;font-family:var(--sans);font-size:.85rem;color:var(--black);outline:none;transition:border-color .3s var(--ease);font-weight:300}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--black)}
+.form-group textarea{resize:none;height:100px}
+.form-group select{appearance:none;cursor:pointer}
+.submit-btn{background:var(--black);color:var(--white);border:none;padding:1.1rem 3rem;font-family:var(--sans);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s var(--ease);width:100%}
+.submit-btn:hover{background:var(--gray-800)}
+
+/* FOOTER */
+footer{background:var(--black);color:var(--gray-600);padding:3rem 4rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--gray-800)}
+.footer-logo{font-family:var(--serif);font-size:1.2rem;color:var(--gray-400)}
+.footer-copy{font-size:.65rem;letter-spacing:.1em}
+.footer-social{display:flex;gap:2rem}
+.footer-social a{color:var(--gray-600);text-decoration:none;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;transition:color .3s}
+.footer-social a:hover{color:var(--white)}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .main-nav{padding:1.5rem 2rem}
+  .nav-links{display:none}
+  section{padding:5rem 2rem}
+  .about{grid-template-columns:1fr;gap:3rem}
+  .projects-grid{grid-template-columns:1fr;gap:1rem}
+  .proj-card:nth-child(n){grid-column:span 1;aspect-ratio:16/9}
+  .services-grid{grid-template-columns:1fr}
+  .service-item{border-right:none;border-bottom:1px solid var(--gray-200)}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .renders-grid{grid-template-columns:1fr}
+  .render-item:first-child{grid-column:span 1}
+  .testi-grid{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+  .contact-left,.contact-right{padding:5rem 2rem}
+  footer{flex-direction:column;gap:2rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header class="top-logo-bar">
+  <img src="images/huairalogob.png" alt="Huaira Logo" class="logo-fixed">
+</header>
+
+<nav class="main-nav">
+  <div class="lang-switch">
+  <button onclick="setLanguage('es')">ES</button>
+  <button onclick="setLanguage('en')">EN</button>
+</div>
+  <ul class="nav-links">
+    <li><a href="#about" id="nav-about">Hüaira</a></li>
+    <li><a href="#projects" id="nav-projects">
+  Proyectos
+</a></li>
+    <li><a href="#services" id="nav-services">
+  Servicios
+</a></li>
+    <li><a href="#contact" id="nav-contact">
+  Contacto
+</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow" id="hero-eyebrow">
+  Diseño Interior & Fabricación de Carpintería Arquitectónica
+</p>
+
+<h1 class="hero-title" id="hero-title">
+  El espacio <br>
+  <em>como arte</em> habitado
+</h1>
+
+<p class="hero-sub" id="hero-sub">
+  Espacios que comunican silencio, elegancia<br>
+  y carácter desde la primera línea
+</p>
+
+    <a href="#projects" class="hero-cta" id="hero-cta">
+  Ver proyectos
+</a>
+  </div>
+  <div class="hero-scroll">
+    <span id="hero-scroll-text">Explorar</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="padding:8rem 4rem">
+  <div class="section-label" id="about-label">
+  Hüaira
+</div>
+  <div class="about">
+    <div class="about-visual reveal">
+  <img src="images/cocora.jpg" alt="Huaira">
+  <span class="about-year">Edificio Reserva de Cocora, Armenia Quindío</span>
+</div>
+    <div class="about-text">
+      <h2 id="about-title" class="reveal">
+  Diseñamos espacios que <em>perduran</em> en la memoria
+</h2>
+      <p id="about-p1" class="reveal reveal-delay-1">
+  Hüaira es un estudio de diseño interior y fabricación de mobiliario especializado en crear espacios elegantes y funcionales. Combinamos diseño, visualización 3D y fabricación a medida para transformar ideas en experiencias habitables con estética premium y atención al detalle.
+</p>
+      <p id="about-p2" class="reveal reveal-delay-2">
+  Trabajamos con materiales nobles, proporciones cuidadas y una estética que equilibra lo contemporáneo con lo atemporal. Cada detalle es intencional.
+</p>
+      <div class="about-stats reveal reveal-delay-3">
+        <div>
+          <span class="stat-num">85+</span>
+          <span class="stat-label">Proyectos</span>
+        </div>
+        <div>
+          <span class="stat-num">7+</span>
+          <span class="stat-label">Años</span>
+        </div>
+        <div>
+          <span class="stat-num">3+</span>
+          <span class="stat-label">Ciudades</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects">
+  <div class="section-label" id="projects-label">
+  Proyectos
+</div>
+  <div class="projects-header reveal">
+    <h2 class="projects-title" id="projects-title">
+  Obras<br>
+  <em style="font-style:italic;font-family:'Cormorant Garamond',serif">
+    recientes
+  </em>
+</h2>
+    <p style="font-size:.75rem;color:var(--gray-600);max-width:260px;line-height:1.8;text-align:right">Cada espacio nace de una conversación honesta y una visión compartida</p>
+  </div>
+  <div class="projects-grid">
+    <div class="proj-card reveal">
+      <img src="images/loma.jpg" alt="Loma Linda">
+      <div class="proj-overlay"><h3>Loma Linda - Laureles, Armenia Quindío</h3><span>Cocina · 2025</span></div>
+    </div>
+    <div class="proj-card reveal reveal-delay-1">
+      <img src="images/med.jpeg" alt="Mediterráneo">
+      <div class="proj-overlay"><h3>Conjunto Residencial Mediterráneo, Armenia Quindío</h3><span>Cocina · 2026</span></div>
+    </div>
+    <div class="proj-card reveal reveal-delay-2">
+      <img src="images/med2.jpeg" alt="Mediterráneo">
+      <div class="proj-overlay"><h3>Conjunto Residencial Mediterráneo, Armenia Quindío</h3><span>Cocina · 2026</span></div>
+    </div>
+    <div class="proj-card reveal reveal-delay-3">
+      <img src="images/pastorita.jpeg" alt="La Patorita">
+      <div class="proj-overlay"><h3>Conjunto Residencial La Pastorita, Armenia Quindío</h3><span>Cocina · 2024</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <div class="section-label" id="services-label">
+  Servicios
+</div>
+  <div class="services-grid">
+    <div class="service-item reveal">
+      <span class="service-num">01</span>
+      <h3 class="service-title" id="service-1-title">
+  Diseño Interior Integral
+</h3>
+      <p id="service-1-desc" class="service-desc">Desde el concepto hasta la entrega final. Desarrollamos la identidad espacial, paletas, materiales, iluminación y coordinación de obra.</p>
+      <div class="service-tags"><span class="tag">Concepto</span><span class="tag">Planos</span><span class="tag">Coordinación</span></div>
+    </div>
+    <div class="service-item reveal reveal-delay-1">
+      <span class="service-num">02</span>
+      <h3 class="service-title" id="service-2-title">
+  Mobiliario a Medida
+</h3>
+      <p id="service-2-desc" class="service-desc">Diseñamos y fabricamos mobiliario único con precisión arquitectónica. Mantenemos el control absoluto de la obra, garantizando una ejecución impecable en cada pieza.</p>
+      <div class="service-tags"><span class="tag">Diseño</span><span class="tag">Fabricación</span><span class="tag">Instalación</span></div>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="section-label" id="process-label">
+  Proceso de Trabajo
+</div>
+  <div class="process-grid">
+    <div class="process-step reveal">
+      <h3 id="process-1-title">Descubrimiento</h3>
+      <p id="process-1-desc"> Escuchamos profundamente tus necesidades, forma de vida y visión. Esta conversación define todo lo que sigue.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-1">
+      <h3 id="process-2-title">Concepto</h3>
+      <p id="process-2-desc">
+  Desarrollamos la narrativa del espacio: paleta, materiales, atmósfera y referencias que guiarán el diseño.
+</p>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <h3 id="process-3-title">Diseño técnico</h3>
+<p id="process-3-desc">
+  Planos técnicos, modelos 3D y renders fotorrealistas que te permiten visualizar el resultado antes de la obra.
+</p>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <h3 id="process-4-title">Ejecución</h3>
+      <p id="process-4-desc">
+  Coordinamos proveedores, fabricación y obra con seguimiento riguroso hasta la entrega del espacio terminado.
+</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding:0">
+  <div class="contact">
+    <div class="contact-left">
+      <div class="section-label" style="color:var(--gray-600)">Contacto</div>
+      <h2 id="contact-title">
+  Hablemos de tu <em>próximo espacio</em>
+</h2>
+      <p id="contact-text">
+  Cada gran proyecto comienza con una conversación. Cuéntanos tu visión y construimos juntos el espacio que mereces.
+</p>
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <span id="contact-email-label">Correo</span>
+          <a href="mailto:huairacocinas@outlook.es">huairacocinas@outlook.es</a>
+        </div>
+        <div class="contact-info-item">
+          <span id="contact-whatsapp-label">WhatsApp</span>
+          <a href="https://wa.me/573187919651" target="_blank">
+  +57 318 7919651
+</a>
+        <div class="contact-info-item">
+  <span id="contact-instagram-label">Instagram</span>
+  <a href="https://instagram.com/huaira_carpinteria" target="_blank">
+  @huaira_carpinteria
+  </a>
+</div>
+
+</div> <!-- CIERRA contact-info -->
+</div> <!-- CIERRA contact-left -->
+
+</div>
+
+<div class="contact-right">
+  <h3 id="form-title">Cuéntanos tu proyecto</h3>
+
+  <form action="https://formsubmit.co/huairacocinas@outlook.es" method="POST">
+
+    <!-- Opcional -->
+    <input type="hidden" name="_subject" value="Nuevo proyecto desde HUAIRA">
+    <input type="hidden" name="_captcha" value="false">
+
+    <div class="form-group">
+      <label id="label-name">Nombre completo</label>
+
+      <input
+        type="text"
+        name="nombre"
+        id="input-name"
+        placeholder="Tu nombre"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label id="label-email">Correo electrónico</label>
+
+      <input
+        type="email"
+        name="correo"
+        id="input-email"
+        placeholder="tu@gmail.com"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label id="label-project-type">Tipo de proyecto</label>
+
+      <select name="tipo_proyecto" id="project-select" required>
+        <option value="">Selecciona una opción</option>
+        <option id="option-residential">Residencial</option>
+        <option id="option-commercial">Comercial</option>
+        <option id="option-hospitality">Hospitalidad</option>
+        <option id="option-corporate">Corporativo</option>
+        <option id="option-custom">Mobiliario a medida</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label id="label-vision">Cuéntanos tu visión</label>
+
+      <textarea
+        name="mensaje"
+        id="textarea-vision"
+        placeholder="Describe tu proyecto, espacios, presupuesto aproximado y fecha estimada..."
+        required
+      ></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn" id="submit-btn">
+      Enviar mensaje
+    </button>
+
+  </form>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">HUAIRA</span>
+  <span class="footer-copy">© 2026 HUAIRA · Colombia · Todos los derechos reservados</span>
+  <div class="footer-social">
+    <a href="https://instagram.com/huaira_carpinteria" target="_blank">
+Instagram
+</a>
+    <a href="#">Behance</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('visible')
+    }
+  })
+},{threshold:0.1})
+
+document.querySelectorAll('.reveal').forEach(el =>
+  observer.observe(el)
+)
+
+const nav = document.querySelector('.main-nav')
+
+window.addEventListener('scroll', () => {
+
+  if(window.scrollY > 10){
+    nav.classList.add('scrolled')
+  } else {
+    nav.classList.remove('scrolled')
+  }
+
+})
+
+const translations = {
+  es: {
+    "nav-about": "Hüaira",
+    "nav-projects": "Proyectos",
+    "nav-services": "Servicios",
+    "nav-contact": "Contacto",
+
+    "hero-eyebrow": "Diseño Interior & Fabricación de Carpintería Arquitectónica",
+    "hero-title": "El espacio <br><em>como arte</em> habitado",
+    "hero-sub": "Espacios que comunican silencio, elegancia<br>y carácter desde la primera línea",
+
+    "about-label": "Hüaira",
+    "about-title": "Diseñamos espacios que <em>perduran</em> en la memoria",
+
+    "projects-label": "Proyectos",
+    "projects-title": "Obras<br><em style='font-style:italic;font-family:\"Cormorant Garamond\",serif'>recientes</em>",
+
+    "services-label": "Servicios",
+    "service-1-title": "Diseño Interior Integral",
+    "service-2-title": "Mobiliario a Medida",
+
+    "process-label": "Proceso de Trabajo",
+    "process-1-title": "Descubrimiento",
+    "process-2-title": "Concepto",
+    "process-3-title": "Diseño técnico",
+    "process-4-title": "Ejecución",
+
+    "about-p1": "Hüaira es un estudio de diseño interior y fabricación de mobiliario especializado en crear espacios elegantes y funcionales. Combinamos diseño, visualización 3D y fabricación a medida para transformar ideas en experiencias habitables con estética premium y atención al detalle.",
+
+"about-p2": "Trabajamos con materiales nobles, proporciones cuidadas y una estética que equilibra lo contemporáneo con lo atemporal. Cada detalle es intencional.",
+
+"service-1-desc": "Desde el concepto hasta la entrega final. Desarrollamos la identidad espacial, paletas, materiales, iluminación y coordinación de obra.",
+
+"service-2-desc": "Diseñamos y fabricamos mobiliario único con precisión arquitectónica. Mantenemos el control absoluto de la obra, garantizando una ejecución impecable en cada pieza.",
+
+"process-1-desc": "Escuchamos profundamente tus necesidades, forma de vida y visión. Esta conversación define todo lo que sigue.",
+
+"process-2-desc": "Desarrollamos la narrativa del espacio: paleta, materiales, atmósfera y referencias que guiarán el diseño.",
+
+"process-3-desc": "Planos técnicos, modelos 3D y renders fotorrealistas que te permiten visualizar el resultado antes de la obra.",
+
+"process-4-desc": "Coordinamos proveedores, fabricación y obra con seguimiento riguroso hasta la entrega del espacio terminado.",
+"contact-title": "Hablemos de tu <em>próximo espacio</em>",
+"contact-text": "Cada gran proyecto comienza con una conversación. Cuéntanos tu visión y construimos juntos el espacio que mereces.",
+"contact-email-label": "Correo",
+"contact-whatsapp-label": "WhatsApp",
+"contact-instagram-label": "Instagram",
+"contact-behance-label": "Behance",
+"form-title": "Cuéntanos tu proyecto",
+
+"label-name": "Nombre completo",
+"label-email": "Correo electrónico",
+"label-project-type": "Tipo de proyecto",
+"label-vision": "Cuéntanos tu visión",
+
+"input-name": "Tu nombre",
+"input-email": "tu@gmail.com",
+"textarea-vision": "Describe tu proyecto, espacios, presupuesto aproximado y fecha estimada...",
+
+"option-residential": "Residencial",
+"option-commercial": "Comercial",
+"option-hospitality": "Hospitalidad",
+"option-corporate": "Corporativo",
+"option-custom": "Mobiliario a medida",
+
+"submit-btn": "Enviar mensaje",
+"hero-cta": "Ver proyectos",
+"hero-scroll-text": "Explorar",
+  },
+
+  en: {
+    "nav-about": "Hüaira",
+    "nav-projects": "Projects",
+    "nav-services": "Services",
+    "nav-contact": "Contact",
+
+    "hero-eyebrow": "Interior Design & Architectural Woodwork",
+    "hero-title": "Space as <br><em>lived art</em>",
+    "hero-sub": "Spaces that communicate silence, elegance<br>and character from the very first line",
+
+    "about-label": "Hüaira",
+    "about-title": "We design spaces that <em>remain</em> in memory",
+
+    "projects-label": "Projects",
+    "projects-title": "Recent<br><em style='font-style:italic;font-family:\"Cormorant Garamond\",serif'>works</em>",
+
+    "services-label": "Services",
+    "service-1-title": "Full Interior Design",
+    "service-2-title": "Custom Furniture",
+
+    "process-label": "Workflow",
+    "process-1-title": "Discovery",
+    "process-2-title": "Concept",
+    "process-3-title": "Technical Design",
+    "process-4-title": "Execution",
+
+    "about-p1": "Hüaira is an interior design and furniture fabrication studio specialized in creating elegant and functional spaces. We combine design, 3D visualization and custom manufacturing to transform ideas into livable experiences with premium aesthetics and attention to detail.",
+
+"about-p2": "We work with noble materials, refined proportions and an aesthetic that balances the contemporary with the timeless. Every detail is intentional.",
+
+"service-1-desc": "From concept to final delivery. We develop the spatial identity, palettes, materials, lighting and project coordination.",
+
+"service-2-desc": "We design and manufacture bespoke furniture with architectural precision. We maintain absolute control over every stage, guaranteeing an impeccable finish for every piece.",
+
+"process-1-desc": "We deeply listen to your needs, lifestyle and vision. This conversation defines everything that follows.",
+
+"process-2-desc": "We develop the narrative of the space: palette, materials, atmosphere and references that guide the design.",
+
+"process-3-desc": "Technical drawings, 3D models and photorealistic renders that allow you to visualize the result before construction.",
+
+"process-4-desc": "We coordinate suppliers, manufacturing and construction with rigorous follow-up until final delivery.",
+"contact-title": "Let’s talk about your <em>next space</em>",
+"contact-text": "Every great project begins with a conversation. Tell us your vision and we’ll build together the space you deserve.",
+"contact-email-label": "Email",
+"contact-whatsapp-label": "WhatsApp",
+"contact-instagram-label": "Instagram",
+"contact-behance-label": "Behance",
+"form-title": "Tell us about your project",
+
+"label-name": "Full name",
+"label-email": "Email address",
+"label-project-type": "Project type",
+"label-vision": "Tell us your vision",
+
+"input-name": "Your name",
+"input-email": "your@email.com",
+"textarea-vision": "Describe your project, spaces, approximate budget and estimated timeline...",
+
+"option-residential": "Residential",
+"option-commercial": "Commercial",
+"option-hospitality": "Hospitality",
+"option-corporate": "Corporate",
+"option-custom": "Custom furniture",
+
+"submit-btn": "Send message",
+"hero-cta": "View projects",
+"hero-scroll-text": "Explore",
+  }
+}
+window.addEventListener("load", () => {
+  const saved = localStorage.getItem("lang") || "es"
+  setLanguage(saved)
+})
+function setLanguage(lang){
+
+  localStorage.setItem("lang", lang)
+
+  const dict = translations[lang]
+
+  for(const id in dict){
+
+    const el = document.getElementById(id)
+
+    if(!el) continue
+
+    if(
+      el.tagName === "INPUT" ||
+      el.tagName === "TEXTAREA"
+    ){
+      el.placeholder = dict[id]
+    }
+    else{
+      el.innerHTML = dict[id]
+    }
+
+  }
+}
+
+</script>
+</body>
+</html>
